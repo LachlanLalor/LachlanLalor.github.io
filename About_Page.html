@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coastline Capriccio</title>
+    <link rel="icon" 
+      href="https://media-hosting.imagekit.io/ba8e546db1f84c2c/download%20(3).png?Expires=1838518567&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=iyzy3YWBbxBE2mYwyCaZ6t3Cq-P37AG8AQW11m~Bw8CP~qsi3Zh0S1sxOEoGmHKzShMwxi~8HPsfCslRizA3e1hnn-bGx9vBnTet0~1Qp-XLuabak7w5l3PvVE6H0KQ7NDHQrb8sHnt6NRjIBhKfp~XzN3NQ~KDGU9C~nxRQaFABlV6b-dKWbKVxT8e1tj51xlV6MLFDwsSIdRYngZAjbpGib3c~fDsEqdy8hvAbRFkdFSvIwaVmUFY3Ej5ZjNCuTT6bltLhJ2E6EQDXoYTaFKnIPDWXcBnHi3SqAK-aVtJ3wR6n9B-gOhoc1IYblcyIrY2CSqQ6JV-DIrKPOt61YA__" 
+      type="image/png">
+    <style>
+        * {box-sizing: border-box}
+
+       
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2c3e50;
+    padding: 15px 20px;
+    color: white;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-left img {
+    height: 100px; /* Adjust the height of the logo image */
+    margin-right: 10px; /* Space between the logo and title */
+    margin-left: -10px;
+    margin-top: -15px;
+    margin-bottom: -15px;
+}
+
+.navbar .title {
+    font-size: 24px;
+    font-weight: bold;
+}
+        .about-container {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 40px 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+    .about-heading {
+      text-align: center;
+      color: #0056b3;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+    .subheading {
+      text-align: center;
+      color: #666;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
+    .section {
+      margin-bottom: 40px;
+    }
+    .section h2 {
+      color: #004494;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .section p {
+      line-height: 1.7;
+      font-size: 16px;
+    }
+    .highlight {
+      color: #0056b3;
+      font-weight: bold;
+    }
+    .lineup-list {
+      list-style: none;
+      padding-left: 0;
+    }
+    .lineup-day {
+      font-size: 18px;
+      font-weight: bold;
+      color: #0056b3;
+      margin-top: 20px;
+    }
+    .lineup-artist {
+      font-size: 16px;
+      padding: 5px 0;
+      border-bottom: 1px solid #e0e6ed;
+    }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #2c3e50;
+            padding: 15px 20px;
+            color: white;
+        }
+
+        .navbar .title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-size: 18px;
+        }
+
+        .navbar a:hover {
+            background-color: #34495e;
+            border-radius: 5px;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-container input {
+            padding: 8px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .search-container button {
+            padding: 8px 12px;
+            background-color: #34495e;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: 5px;
+        }
+
+        .search-container button:hover {
+            background-color: #1abc9c;
+        }
+
+        .menu {
+            display: flex;
+            gap: 15px;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #2c3e50;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            .menu a {
+                display: block;
+                padding: 10px;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            .menu.show {
+                display: flex;
+            }
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+       
+
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            background-color: #007BFF;
+            color: white;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                font-size: 1em;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            h3 {
+                font-size: 1.3em;
+            }
+        }
+        
+   /* 🔹 Footer Styling */
+   .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+        }
+
+        .footer-logo {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links li {
+            display: inline;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #1abc9c;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .footer-social a {
+            color: white;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+
+        .footer-social a:hover {
+            color: #1abc9c;
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        /* 🔹 Responsive */
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 10px;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+        }
+        .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.03);
+}
+    </style>
+</head>
+<body style="background-color:powderblue;">
+    <nav class="navbar">
+        <div class="navbar-left">
+            <img src="https://media-hosting.imagekit.io/ba8e546db1f84c2c/download%20(3).png?Expires=1838518567&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=iyzy3YWBbxBE2mYwyCaZ6t3Cq-P37AG8AQW11m~Bw8CP~qsi3Zh0S1sxOEoGmHKzShMwxi~8HPsfCslRizA3e1hnn-bGx9vBnTet0~1Qp-XLuabak7w5l3PvVE6H0KQ7NDHQrb8sHnt6NRjIBhKfp~XzN3NQ~KDGU9C~nxRQaFABlV6b-dKWbKVxT8e1tj51xlV6MLFDwsSIdRYngZAjbpGib3c~fDsEqdy8hvAbRFkdFSvIwaVmUFY3Ej5ZjNCuTT6bltLhJ2E6EQDXoYTaFKnIPDWXcBnHi3SqAK-aVtJ3wR6n9B-gOhoc1IYblcyIrY2CSqQ6JV-DIrKPOt61YA__" 
+            alt="Coastline Capriccio Logo" style="height: 100px; margin-right: 10px;">
+            <div class="title">Coastline Capriccio</div>
+        </div> 
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="menu" id="menu">
+            <a href="Webstite.html">Home</a>
+            <a href="Tickets.html">Tickets</a>
+            <a  class="active" href="About_Page"><u>About</u></a>
+            <a href="Contact.html">Contact Us</a>
+        </div>
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Search...">
+            <button onclick="searchFunction()">🔍</button>
+        </div>
+    </nav>
+
+    <script>
+
+        function toggleMenu() {
+            document.getElementById("menu").classList.toggle("show");
+        }
+
+        function searchFunction() {
+            let query = document.getElementById("search").value.trim();
+            if (query) {
+                alert("Searching for: " + query);
+            }
+        }
+    </script>
+    <br>
+    <br>
+     <div class="about-container">
+        <h1 class="about-heading">About Coastline Capriccio</h1>
+        <p class="subheading">Where music meets the ocean breeze.</p>
+    
+        <div class="section">
+          <h2>🌅 Our Story</h2>
+          <p>
+            Coastline Capriccio was born from a dream to blend the raw energy of live music with the serenity of the sea. Since our first event, we've welcomed thousands of music lovers from around the world to celebrate creativity, connection, and coastal vibes. Our festival is more than just a concert—it's a vibrant cultural movement pulsing with rhythm, sunshine, and unforgettable memories.
+          </p>
+        </div>
+    
+        <div class="section">
+          <h2>🎶 The Experience</h2>
+          <p>
+            Set against a stunning seaside backdrop in Bulli, Wollongong, Coastline Capriccio offers a one-of-a-kind experience with <span class="highlight">world-class artists</span>, diverse stages, immersive art installations, and curated food & beverage options. Whether you’re grooving to electronic beats at sunset or vibing with indie acoustic under the stars, every moment is designed to move you.
+          </p>
+        </div>
+    
+        <div class="section">
+          <h2>🌍 Our Mission</h2>
+          <p>
+            We strive to foster a community that celebrates inclusion, sustainability, and artistic freedom. Coastline Capriccio proudly supports local talent, eco-friendly initiatives, and charitable partnerships. Our mission is to leave a lasting positive impact on both our attendees and the planet.
+          </p>
+        </div>
+    
+        <div class="section">
+          <h2>🧭 Join the Journey</h2>
+          <p>
+            Whether you're a first-timer or a Capriccio veteran, we welcome you to be part of this growing tradition. Come dance, connect, and get lost in the music as we transform the coastline into a living, breathing celebration of sound and soul.
+          </p>
+        </div>
+    
+        <div class="section">
+          <h2>🎤 2025 Artist Lineup</h2>
+          <p>Get ready for three days of non-stop music with incredible performances from across the globe!</p>
+    
+          <div class="lineup-day">Friday</div>
+          <ul class="lineup-list">
+            <li class="lineup-artist">James Meades – 6:00 PM</li>
+            <li class="lineup-artist">Arya Cherekuri – 7:30 PM</li>
+            <li class="lineup-artist">Arya Patil – 9:00 PM</li>
+            <li class="lineup-artist">Apollo Karakaidos – 10:30 PM</li>
+          </ul>
+    
+          <div class="lineup-day">Saturday</div>
+          <ul class="lineup-list">
+            <li class="lineup-artist">Archie Phillips – 4:00 PM</li>
+            <li class="lineup-artist">Cohen Sanders – 6:00 PM</li>
+            <li class="lineup-artist">Finnian Bobbert – 8:00 PM</li>
+            <li class="lineup-artist">Harry Way (Headliner) – 10:00 PM</li>
+          </ul>
+    
+          <div class="lineup-day">Sunday</div>
+          <ul class="lineup-list">
+            <li class="lineup-artist">Aden Barrett – 3:00 PM</li>
+            <li class="lineup-artist">Mr Rout – 5:00 PM</li>
+            <li class="lineup-artist">Chicken Jockey – 7:00 PM</li>
+            <li class="lineup-artist">Wilfred Windsor – 9:00 PM</li>
+          </ul>
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="section">
+        <h2 style=text-align:center; > 📸 <u>Concert Gallery</u></h2>
+        <p style=text-align:center;> Catch a glimpse of the magic from past years. Nothing captures the spirit of Coastline Capriccio quite like these unforgettable moments.</p>
+      
+        <div class="gallery-grid">
+          <img src="https://media.istockphoto.com/id/1806011581/photo/overjoyed-happy-young-people-dancing-jumping-and-singing-during-concert-of-favorite-group.jpg?s=612x612&w=0&k=20&c=cMFdhX403-yKneupEN-VWSfFdy6UWf1H0zqo6QBChP4=" alt="Crowd dancing at sunset">
+          <img src="https://media.istockphoto.com/id/1140657762/photo/people-celebrating-on-an-summer-open-air.jpg?s=612x612&w=0&k=20&c=zTDEjfIi38VfHYonIjS9ZvHbMloK0Xe_QcKc211ZxR0=" alt="Main stage lights at night">
+          <img src="https://cdn.pixabay.com/photo/2017/08/02/13/09/confetti-2571539_1280.jpg" alt="DJ performing on stage">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Bulli_Aerial.jpg/640px-Bulli_Aerial.jpg" alt="Aerial shot of bulli">
+          <img src="https://www.austockphoto.com.au/imgcache/uploads/photos/compressed/aerial-view-of-the-famous-surfing-headland-sandon-point-bulli-nsw-austockphoto-000034646.jpg" alt="The coast and ocean">
+          <img src="https://img.freepik.com/premium-photo/closeup-dj-performing-music-festival_693425-92184.jpg" alt="Close-up of dj performing">
+        </div>
+      </div>
+    <!-- 🔹 Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div>
+                <div class="footer-logo">Coastline Capriccio</div>
+                <p>Bringing quality music to you since 1823.</p>
+            </div>
+    
+            <ul class="footer-links">
+                <li><a href="Privacy.html">Privacy Policy</a></li>
+                <li><a href="Terms.html">Terms & Conditions</a></li>
+                <li><a href="Contact.html">Contact Us</a></li>
+                <li><a href="FAQ.html">FAQs</a></li>
+            </ul>
+    
+            <div class="footer-social">
+                <a href="#">🟢 Spotify</a>
+                <a href="#">🟣 Instagram</a>
+                <a href="#">🔷 Twitter</a>
+                <a href="https://www.youtube.com/channel/UCVJb9IDm3g3kJPRi8AyK3Ow" target="_blank">🔴 YouTube</a>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            <p>© 2025 Coastline Capriccio. All Rights Reserved.</p>
+            <p>We acknowledge the Dharawal people as the Traditional Custodians of the land on which we gather today. We pay our respects to their Elders past, present, and emerging and recognize their continuing connection to land, waters, and culture. We extend that respect to all First Nations people present.</p>
+        </div>
+    </footer>
+    
+
+</body>
+</html>

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coastline Capriccio</title>
+    <link rel="icon" 
+      href="https://media-hosting.imagekit.io/ba8e546db1f84c2c/download%20(3).png?Expires=1838518567&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=iyzy3YWBbxBE2mYwyCaZ6t3Cq-P37AG8AQW11m~Bw8CP~qsi3Zh0S1sxOEoGmHKzShMwxi~8HPsfCslRizA3e1hnn-bGx9vBnTet0~1Qp-XLuabak7w5l3PvVE6H0KQ7NDHQrb8sHnt6NRjIBhKfp~XzN3NQ~KDGU9C~nxRQaFABlV6b-dKWbKVxT8e1tj51xlV6MLFDwsSIdRYngZAjbpGib3c~fDsEqdy8hvAbRFkdFSvIwaVmUFY3Ej5ZjNCuTT6bltLhJ2E6EQDXoYTaFKnIPDWXcBnHi3SqAK-aVtJ3wR6n9B-gOhoc1IYblcyIrY2CSqQ6JV-DIrKPOt61YA__" 
+      type="image/png">
+    <style>
+        * {box-sizing: border-box}
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .faq-container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        .faq-heading {
+            color: #0056b3;
+            text-align: center;
+            font-size: 28px;
+        }
+        .faq-section {
+            margin-top: 20px;
+        }
+        .faq-question {
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            background: #0056b3;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            transition: background 0.3s ease-in-out;
+        }
+        .faq-question:hover {
+            background: #004494;
+        }
+        .faq-answer {
+            font-size: 16px;
+            line-height: 1.6;
+            padding: 0 10px;
+            background: #eef3f9;
+            border-left: 4px solid #0056b3;
+            border-radius: 5px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+        }
+        .faq-answer.active {
+            max-height: 300px;
+            padding: 10px;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #2c3e50;
+            padding: 15px 20px;
+            color: white;
+        }
+
+        .navbar .title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-size: 18px;
+        }
+
+        .navbar a:hover {
+            background-color: #34495e;
+            border-radius: 5px;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-container input {
+            padding: 8px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .search-container button {
+            padding: 8px 12px;
+            background-color: #34495e;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: 5px;
+        }
+
+        .search-container button:hover {
+            background-color: #1abc9c;
+        }
+
+        .menu {
+            display: flex;
+            gap: 15px;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #2c3e50;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            .menu a {
+                display: block;
+                padding: 10px;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            .menu.show {
+                display: flex;
+            }
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: #007BFF;
+            margin-top: 40px;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        p, ul {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin: 10px 0 20px 0;
+            padding: 0 20px;
+        }
+
+        ul {
+            list-style-type: square;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .container p {
+            padding: 0 20px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            background-color: #007BFF;
+            color: white;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                font-size: 1em;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            h3 {
+                font-size: 1.3em;
+            }
+        }
+        
+   /* 🔹 Footer Styling */
+   .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+        }
+
+        .footer-logo {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links li {
+            display: inline;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #1abc9c;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .footer-social a {
+            color: white;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+
+        .footer-social a:hover {
+            color: #1abc9c;
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        /* 🔹 Responsive */
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 10px;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+        }
+        .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2c3e50;
+    padding: 15px 20px;
+    color: white;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-left img {
+    height: 100px; /* Adjust the height of the logo image */
+    margin-right: 10px; /* Space between the logo and title */
+    margin-left: -10px;
+    margin-top: -15px;
+    margin-bottom: -15px;
+}
+
+.navbar .title {
+    font-size: 24px;
+    font-weight: bold;
+}
+    </style>
+</head>
+<body style="background-color:powderblue;">
+    <nav class="navbar">
+        <div class="navbar-left">
+            <img src="https://media-hosting.imagekit.io/ba8e546db1f84c2c/download%20(3).png?Expires=1838518567&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=iyzy3YWBbxBE2mYwyCaZ6t3Cq-P37AG8AQW11m~Bw8CP~qsi3Zh0S1sxOEoGmHKzShMwxi~8HPsfCslRizA3e1hnn-bGx9vBnTet0~1Qp-XLuabak7w5l3PvVE6H0KQ7NDHQrb8sHnt6NRjIBhKfp~XzN3NQ~KDGU9C~nxRQaFABlV6b-dKWbKVxT8e1tj51xlV6MLFDwsSIdRYngZAjbpGib3c~fDsEqdy8hvAbRFkdFSvIwaVmUFY3Ej5ZjNCuTT6bltLhJ2E6EQDXoYTaFKnIPDWXcBnHi3SqAK-aVtJ3wR6n9B-gOhoc1IYblcyIrY2CSqQ6JV-DIrKPOt61YA__" 
+            alt="Coastline Capriccio Logo" style="height: 100px; margin-right: 10px;">
+            <div class="title">Coastline Capriccio</div>
+        </div> 
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="menu" id="menu">
+            <a href="Webstite.html">Home</a>
+            <a href="Tickets.html">Tickets</a>
+            <a href="About_Page.html">About</a>
+            <a href="Contact.html">Contact Us</a>
+        </div>
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Search...">
+            <button onclick="searchFunction()">🔍</button>
+        </div>
+    </nav>
+    <script>
+
+        function toggleMenu() {
+            document.getElementById("menu").classList.toggle("show");
+        }
+
+        function searchFunction() {
+            let query = document.getElementById("search").value.trim();
+            if (query) {
+                alert("Searching for: " + query);
+            }
+        }
+    </script>
+      <div class="faq-container">
+        <h1 class="faq-heading">Frequently Asked Questions</h1>
+
+        <div class="faq-section">
+            <div class="faq-question" onclick="toggleAnswer(this)">🎟️ How can I buy tickets?</div>
+            <div class="faq-answer">Tickets can be purchased through our official website. We recommend buying early as they often sell out quickly!</div>
+
+            <div class="faq-question" onclick="toggleAnswer(this)">🚪 Can I re-enter the festival if I leave?</div>
+            <div class="faq-answer">Yes! Re-entry is allowed as long as you are wearing your official Coastline Capriccio wristband.</div>
+
+            <div class="faq-question" onclick="toggleAnswer(this)">🎒 What items are prohibited?</div>
+            <div class="faq-answer">Weapons, illegal substances, outside food & drinks, large umbrellas, drones, and professional recording equipment (without special permission) are not allowed.</div>
+
+            <div class="faq-question" onclick="toggleAnswer(this)">🌦️ What happens if it rains?</div>
+            <div class="faq-answer">Coastline Capriccio is a rain-or-shine event. However, in case of extreme weather, safety procedures will be announced.</div>
+
+            <div class="faq-question" onclick="toggleAnswer(this)">🍔 Will food and drinks be available?</div>
+            <div class="faq-answer">Yes! There will be plenty of food trucks, vendors, and drink stations available throughout the festival grounds.</div>
+
+            <div class="faq-question" onclick="toggleAnswer(this)">🚗 Is parking available?</div>
+            <div class="faq-answer">Limited parking is available on a first-come, first-served basis. We encourage attendees to use public transport, carpool, or rideshare services.</div>
+
+            <div class="faq-question" onclick="toggleAnswer(this)">📷 Can I bring a camera?</div>
+            <div class="faq-answer">Personal cameras and smartphones are allowed, but professional cameras and recording equipment require special permission.</div>
+
+            <div class="faq-question" onclick="toggleAnswer(this)">🧴 Can I bring sunscreen or a refillable water bottle?</div>
+            <div class="faq-answer">Yes! Sunscreen is highly recommended, and empty refillable water bottles are allowed for use at hydration stations.</div>
+
+            <div class="faq-question" onclick="toggleAnswer(this)">👶 Is the festival family-friendly?</div>
+            <div class="faq-answer">Coastline Capriccio is open to all ages, but some areas may be restricted to 18+ or 21+ due to alcohol sales.</div>
+
+            <div class="faq-question" onclick="toggleAnswer(this)">🆘 What should I do in case of an emergency?</div>
+            <div class="faq-answer">Look for the nearest festival staff or security personnel. Medical stations will be located throughout the venue.</div>
+        </div>
+
+        <p class="footer"><strong>Still have questions?</strong> Contact us <a href="Contact.html"><u>here</u></a></p>
+    </div>
+
+    <script>
+        function toggleAnswer(question) {
+            const answer = question.nextElementSibling;
+            answer.classList.toggle('active');
+        }
+    </script>
+    <!-- 🔹 Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div>
+                <div class="footer-logo">Coastline Capriccio</div>
+                <p>Bringing quality music to you since 1823.</p>
+            </div>
+    
+            <ul class="footer-links">
+                <li><a href="Privacy.html">Privacy Policy</a></li>
+                <li><a href="Terms.html">Terms & Conditions</a></li>
+                <li><a href="Contact.html">Contact Us</a></li>
+                <li><a href="FAQ.html">FAQs</a></li>
+            </ul>
+    
+            <div class="footer-social">
+                <a href="#">🟢 Spotify</a>
+                <a href="#">🟣 Instagram</a>
+                <a href="#">🔷 Twitter</a>
+                <a href="https://www.youtube.com/channel/UCVJb9IDm3g3kJPRi8AyK3Ow" target="_blank">🔴 YouTube</a>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            <p>© 2025 Coastline Capriccio. All Rights Reserved.</p>
+            <p>We acknowledge the Dharawal people as the Traditional Custodians of the land on which we gather today. We pay our respects to their Elders past, present, and emerging and recognize their continuing connection to land, waters, and culture. We extend that respect to all First Nations people present.</p>
+        </div>
+    </footer>
+    
+
+</body>
+</html>

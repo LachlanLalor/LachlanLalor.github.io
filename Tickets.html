@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coastline Capriccio</title>
+    <link rel="icon" 
+      href="https://media-hosting.imagekit.io/ba8e546db1f84c2c/download%20(3).png?Expires=1838518567&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=iyzy3YWBbxBE2mYwyCaZ6t3Cq-P37AG8AQW11m~Bw8CP~qsi3Zh0S1sxOEoGmHKzShMwxi~8HPsfCslRizA3e1hnn-bGx9vBnTet0~1Qp-XLuabak7w5l3PvVE6H0KQ7NDHQrb8sHnt6NRjIBhKfp~XzN3NQ~KDGU9C~nxRQaFABlV6b-dKWbKVxT8e1tj51xlV6MLFDwsSIdRYngZAjbpGib3c~fDsEqdy8hvAbRFkdFSvIwaVmUFY3Ej5ZjNCuTT6bltLhJ2E6EQDXoYTaFKnIPDWXcBnHi3SqAK-aVtJ3wR6n9B-gOhoc1IYblcyIrY2CSqQ6JV-DIrKPOt61YA__" 
+      type="image/png">
+    <style>
+        * {box-sizing: border-box}
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2c3e50;
+    padding: 15px 20px;
+    color: white;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-left img {
+    height: 100px; /* Adjust the height of the logo image */
+    margin-right: 10px; /* Space between the logo and title */
+    margin-left: -10px;
+    margin-top: -15px;
+    margin-bottom: -15px;
+}
+
+.navbar .title {
+    font-size: 24px;
+    font-weight: bold;
+}
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .ticket-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+        .ticket-title { color: #007BFF; margin-bottom: 20px; }
+        .ticket-description { font-size: 1.1em; margin-bottom: 20px; }
+        .ticket-form { text-align: left; margin-top: 20px; }
+        .ticket-group { margin-bottom: 15px; }
+        .ticket-label { display: block; font-weight: bold; margin-bottom: 5px; font-size: 1.2em; }
+        .ticket-select, .ticket-quantity, .ticket-name, .ticket-email, .promo-code {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        .ticket-summary {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #eef5ff;
+            border-left: 5px solid #007BFF;
+            font-size: 1.1em;
+        }
+        .checkout-button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+        }
+        .checkout-button:hover { background-color: #0056b3; }
+        .ticket-option { margin-top: 20px; text-align: left; padding: 10px; background-color: #f1f1f1; border-radius: 8px; }
+        .ticket-option p { font-size: 1em; }
+        .ticket-description { margin-top: 10px; font-size: 0.9em; color: #666; }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #2c3e50;
+            padding: 15px 20px;
+            color: white;
+        }
+
+        .navbar .title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-size: 18px;
+        }
+
+        .navbar a:hover {
+            background-color: #34495e;
+            border-radius: 5px;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-container input {
+            padding: 8px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .search-container button {
+            padding: 8px 12px;
+            background-color: #34495e;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: 5px;
+        }
+
+        .search-container button:hover {
+            background-color: #1abc9c;
+        }
+
+        .menu {
+            display: flex;
+            gap: 15px;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #2c3e50;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            .menu a {
+                display: block;
+                padding: 10px;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            .menu.show {
+                display: flex;
+            }
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: #007BFF;
+            margin-top: 40px;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        p, ul {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin: 10px 0 20px 0;
+            padding: 0 20px;
+        }
+
+        ul {
+            list-style-type: square;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .container p {
+            padding: 0 20px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            background-color: #007BFF;
+            color: white;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                font-size: 1em;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            h3 {
+                font-size: 1.3em;
+            }
+        }
+        
+   /* 🔹 Footer Styling */
+   .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+        }
+
+        .footer-logo {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links li {
+            display: inline;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #1abc9c;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .footer-social a {
+            color: white;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+
+        .footer-social a:hover {
+            color: #1abc9c;
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        /* 🔹 Responsive */
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 10px;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+        }
+        
+    </style>
+</head>
+<body style="background-color:powderblue;">
+    <nav class="navbar">
+        <div class="navbar-left">
+            <img src="https://media-hosting.imagekit.io/ba8e546db1f84c2c/download%20(3).png?Expires=1838518567&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=iyzy3YWBbxBE2mYwyCaZ6t3Cq-P37AG8AQW11m~Bw8CP~qsi3Zh0S1sxOEoGmHKzShMwxi~8HPsfCslRizA3e1hnn-bGx9vBnTet0~1Qp-XLuabak7w5l3PvVE6H0KQ7NDHQrb8sHnt6NRjIBhKfp~XzN3NQ~KDGU9C~nxRQaFABlV6b-dKWbKVxT8e1tj51xlV6MLFDwsSIdRYngZAjbpGib3c~fDsEqdy8hvAbRFkdFSvIwaVmUFY3Ej5ZjNCuTT6bltLhJ2E6EQDXoYTaFKnIPDWXcBnHi3SqAK-aVtJ3wR6n9B-gOhoc1IYblcyIrY2CSqQ6JV-DIrKPOt61YA__" 
+            alt="Coastline Capriccio Logo" style="height: 100px; margin-right: 10px;">
+            <div class="title">Coastline Capriccio</div>
+        </div> 
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="menu" id="menu">
+            <a href="Webstite.html">Home</a>
+            <a class="active" href="#Tickets"><u>Tickets</u></a>
+            <a href="About_Page.html">About</a>
+            <a href="Contact.html">Contact Us</a>
+        </div>
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Search...">
+            <button onclick="searchFunction()">🔍</button>
+        </div>
+    </nav>
+
+    <script>
+
+        function toggleMenu() {
+            document.getElementById("menu").classList.toggle("show");
+        }
+
+        function searchFunction() {
+            let query = document.getElementById("search").value.trim();
+            if (query) {
+                alert("Searching for: " + query);
+            }
+        }
+    </script>
+ <div class="ticket-container">
+    <h1 class="ticket-title">Buy Your Tickets</h1>
+    <p class="ticket-description">Select your ticket type, enter your details, apply a promo code (if you have one), and proceed to checkout. Each ticket comes with unique benefits for your festival experience!</p>
+
+    <!-- Ticket Options Description -->
+    <div class="ticket-option">
+        <h2>Ticket Types</h2>
+        <div>
+            <h3>Standard Ticket</h3>
+            <p>Price: $20</p>
+            <p class="ticket-description">Enjoy access to the main stage, food vendors, and general festival areas. This is perfect for music lovers who want to experience the festival without the premium perks.</p>
+        </div>
+        <div>
+            <h3>VIP Ticket</h3>
+            <p>Price: $100</p>
+            <p class="ticket-description">Get exclusive VIP access to premium areas including a VIP lounge, front-row seating, and fast-track entry to shows. Plus, enjoy free drinks and snacks throughout the festival!</p>
+        </div>
+        <div>
+            <h3>Student Ticket</h3>
+            <p>Price: $10</p>
+            <p class="ticket-description">Special discount for students! Get access to the main stage and all festival areas at a reduced rate. Please present valid student ID upon entry.</p>
+        </div>
+        <div>
+            <h3>Family Bundle</h3>
+            <p>Price: $75 (for 5 people)</p>
+            <p class="ticket-description">A great deal for families! This bundle includes 5 standard tickets for the price of 4. Enjoy the festival with your loved ones and make lasting memories!</p>
+        </div>
+        <div>
+            <h3>Ultra VIP (VVVIP)</h3>
+            <p>Price: $500</p>
+            <p class="ticket-description">The ultimate festival experience! Includes all VIP perks, plus backstage passes, meet-and-greets with artists, and a luxury VIP tent for your comfort. Only a limited number of VVVIP tickets available.</p>
+        </div>
+    </div>
+
+    <!-- Ticket Form -->
+    <div class="ticket-form">
+        <div class="ticket-group">
+            <label for="ticket-type" class="ticket-label">Ticket Type:</label>
+            <select id="ticket-type" class="ticket-select" onchange="updateSummary()">
+                <option value="standard" data-price="20">Standard - $20</option>
+                <option value="vip" data-price="100">VIP - $100</option>
+                <option value="student" data-price="10">Student - $10</option>
+                <option value="familyBundle" data-price="75">Family Bundle (5 People) - $75</option>
+                <option value="vvvip" data-price="500">Ultra VIP - $500</option>
+            </select>
+        </div>
+
+        <div class="ticket-group">
+            <label for="quantity" class="ticket-label">Quantity:</label>
+            <input type="number" id="quantity" class="ticket-quantity" min="1" max="10" value="1" onchange="updateSummary()">
+        </div>
+
+        <div class="ticket-group">
+            <label for="name" class="ticket-label">Full Name:</label>
+            <input type="text" id="name" class="ticket-name" placeholder="Enter your full name">
+        </div>
+
+        <div class="ticket-group">
+            <label for="email" class="ticket-label">Email Address:</label>
+            <input type="email" id="email" class="ticket-email" placeholder="Enter your email">
+        </div>
+
+        <div class="ticket-group">
+            <label for="promo-code" class="ticket-label">Promo Code:</label>
+            <input type="text" id="promo-code" class="promo-code" placeholder="Enter promo code (optional)" onchange="applyPromoCode()">
+        </div>
+    </div>
+
+    <div class="ticket-summary" id="ticket-summary">Total Price: $20</div>
+
+    <button class="checkout-button" onclick="purchaseTicket()">Proceed to Checkout</button>
+</div>
+
+<script>
+    let promoDiscount = 0;
+
+    function updateSummary() {
+        let ticketType = document.getElementById("ticket-type");
+        let selectedOption = ticketType.options[ticketType.selectedIndex];
+        let price = selectedOption.getAttribute("data-price");
+        let quantity = document.getElementById("quantity").value;
+        let totalPrice = price * quantity;
+
+        // Apply percentage discount
+        totalPrice = totalPrice * (1 - promoDiscount); // Correctly applying percentage discount
+        document.getElementById("ticket-summary").innerText = "Total Price: $" + totalPrice.toFixed(2);
+    }
+
+    function applyPromoCode() {
+        const promoCode = document.getElementById("promo-code").value.trim();
+        if (promoCode === "DISCOUNT10") {
+            promoDiscount = 0.1; // 10% discount
+            alert("Promo code applied: 10% discount!");
+        } else if (promoCode === "VIP20") {
+            promoDiscount = 0.2; // 20% discount
+            alert("Promo code applied: 20% discount!");
+        } else if (promoCode === "FESTIVAL30") {
+            promoDiscount = 0.3; // 30% discount
+            alert("Promo code applied: 30% discount!");
+        } else {
+            promoDiscount = 0;
+            alert("Invalid promo code.");
+        }
+        updateSummary();
+    }
+
+    function purchaseTicket() {
+        let ticketType = document.getElementById("ticket-type").value;
+        let quantity = document.getElementById("quantity").value;
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        
+        if (!name || !email) {
+            alert("Please fill in your name and email before proceeding.");
+            return;
+        }
+        
+        alert("Thank you, " + name + "! You have selected " + quantity + " " + ticketType + " ticket(s). A confirmation email will be sent to " + email + ".");
+    }
+</script>
+</script>
+    <!-- 🔹 Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div>
+                <div class="footer-logo">Coastline Capriccio</div>
+                <p>Bringing quality music to you since 1823.</p>
+            </div>
+    
+            <ul class="footer-links">
+                <li><a href="Privacy.html">Privacy Policy</a></li>
+                <li><a href="Terms.html">Terms & Conditions</a></li>
+                <li><a href="Contact.html">Contact Us</a></li>
+                <li><a href="FAQ.html">FAQs</a></li>
+            </ul>
+    
+            <div class="footer-social">
+                <a href="#">🟢 Spotify</a>
+                <a href="#">🟣 Instagram</a>
+                <a href="#">🔷 Twitter</a>
+                <a href="https://www.youtube.com/channel/UCVJb9IDm3g3kJPRi8AyK3Ow" target="_blank">🔴 YouTube</a>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            <p>© 2025 Coastline Capriccio. All Rights Reserved.</p>
+            <p>We acknowledge the Dharawal people as the Traditional Custodians of the land on which we gather today. We pay our respects to their Elders past, present, and emerging and recognize their continuing connection to land, waters, and culture. We extend that respect to all First Nations people present.</p>
+        </div>
+    </footer>
+    
+
+</body>
+</html>

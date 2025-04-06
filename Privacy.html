@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coastline Capriccio</title>
+    <link rel="icon" 
+      href="https://media-hosting.imagekit.io/ba8e546db1f84c2c/download%20(3).png?Expires=1838518567&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=iyzy3YWBbxBE2mYwyCaZ6t3Cq-P37AG8AQW11m~Bw8CP~qsi3Zh0S1sxOEoGmHKzShMwxi~8HPsfCslRizA3e1hnn-bGx9vBnTet0~1Qp-XLuabak7w5l3PvVE6H0KQ7NDHQrb8sHnt6NRjIBhKfp~XzN3NQ~KDGU9C~nxRQaFABlV6b-dKWbKVxT8e1tj51xlV6MLFDwsSIdRYngZAjbpGib3c~fDsEqdy8hvAbRFkdFSvIwaVmUFY3Ej5ZjNCuTT6bltLhJ2E6EQDXoYTaFKnIPDWXcBnHi3SqAK-aVtJ3wR6n9B-gOhoc1IYblcyIrY2CSqQ6JV-DIrKPOt61YA__" 
+      type="image/png">
+    <style>
+        * {box-sizing: border-box}
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #2c3e50;
+            padding: 15px 20px;
+            color: white;
+        }
+        .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2c3e50;
+    padding: 15px 20px;
+    color: white;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-left img {
+    height: 100px; /* Adjust the height of the logo image */
+    margin-right: 10px; /* Space between the logo and title */
+    margin-left: -10px;
+    margin-top: -15px;
+    margin-bottom: -15px;
+}
+
+.navbar .title {
+    font-size: 24px;
+    font-weight: bold;
+}
+        .navbar .title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-size: 18px;
+        }
+
+        .navbar a:hover {
+            background-color: #34495e;
+            border-radius: 5px;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-container input {
+            padding: 8px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .search-container button {
+            padding: 8px 12px;
+            background-color: #34495e;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: 5px;
+        }
+
+        .search-container button:hover {
+            background-color: #1abc9c;
+        }
+
+        .menu {
+            display: flex;
+            gap: 15px;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #2c3e50;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            .menu a {
+                display: block;
+                padding: 10px;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            .menu.show {
+                display: flex;
+            }
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        header {
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            color: #007BFF;
+            margin-top: 40px;
+        }
+
+        h3 {
+            font-size: 1.5em;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        p, ul {
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin: 10px 0 20px 0;
+            padding: 0 20px;
+        }
+
+        ul {
+            list-style-type: square;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .container p {
+            padding: 0 20px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            background-color: #007BFF;
+            color: white;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media screen and (max-width: 768px) {
+            body {
+                font-size: 1em;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            h3 {
+                font-size: 1.3em;
+            }
+        }
+        
+   /* 🔹 Footer Styling */
+   .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+        }
+
+        .footer-logo {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links li {
+            display: inline;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #1abc9c;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .footer-social a {
+            color: white;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+
+        .footer-social a:hover {
+            color: #1abc9c;
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        /* 🔹 Responsive */
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 10px;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+        }
+        
+    </style>
+</head>
+<body style="background-color:powderblue;">
+    <nav class="navbar">
+        <div class="navbar-left">
+            <img src="https://media-hosting.imagekit.io/ba8e546db1f84c2c/download%20(3).png?Expires=1838518567&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=iyzy3YWBbxBE2mYwyCaZ6t3Cq-P37AG8AQW11m~Bw8CP~qsi3Zh0S1sxOEoGmHKzShMwxi~8HPsfCslRizA3e1hnn-bGx9vBnTet0~1Qp-XLuabak7w5l3PvVE6H0KQ7NDHQrb8sHnt6NRjIBhKfp~XzN3NQ~KDGU9C~nxRQaFABlV6b-dKWbKVxT8e1tj51xlV6MLFDwsSIdRYngZAjbpGib3c~fDsEqdy8hvAbRFkdFSvIwaVmUFY3Ej5ZjNCuTT6bltLhJ2E6EQDXoYTaFKnIPDWXcBnHi3SqAK-aVtJ3wR6n9B-gOhoc1IYblcyIrY2CSqQ6JV-DIrKPOt61YA__" 
+            alt="Coastline Capriccio Logo" style="height: 100px; margin-right: 10px;">
+            <div class="title">Coastline Capriccio</div>
+        </div> 
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="menu" id="menu">
+            <a href="Webstite.html">Home</a>
+            <a href="Tickets.html">Tickets</a>
+            <a href="About_Page.html">About</a>
+            <a href="Contact.html">Contact Us</a>
+        </div>
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Search...">
+            <button onclick="searchFunction()">🔍</button>
+        </div>
+    </nav>
+
+    <script>
+
+        function toggleMenu() {
+            document.getElementById("menu").classList.toggle("show");
+        }
+
+        function searchFunction() {
+            let query = document.getElementById("search").value.trim();
+            if (query) {
+                alert("Searching for: " + query);
+            }
+        }
+    </script>
+<div class="container">
+    <p>At Coastline Capriccio, we value your privacy and are committed to protecting your personal information. This Privacy Policy explains what information we collect, how we use it, and how we safeguard it. By using our website, you agree to the terms outlined in this policy. Please read it carefully to understand how we handle your personal data.</p>
+
+    <h2>1. Information We Collect</h2>
+    <p>We collect several types of information to provide you with a better experience on our website, including:</p>
+
+    <h3>1.1 Personal Information</h3>
+    <p>When you interact with our site, we may ask you to provide certain personally identifiable information, such as:</p>
+    <ul>
+        <li>Name</li>
+        <li>Email Address</li>
+        <li>Phone Number</li>
+        <li>Billing Information (if applicable)</li>
+        <li>Any other information you provide when contacting us</li>
+    </ul>
+
+    <h3>1.2 Usage Data</h3>
+    <p>We may also collect data on how you access and use our website. This data includes:</p>
+    <ul>
+        <li>Your IP Address</li>
+        <li>Browser Type and Version</li>
+        <li>Device Information (e.g., mobile or desktop)</li>
+        <li>Pages Visited and Time Spent on the Site</li>
+        <li>Operating System Details</li>
+        <li>Referring URL (the page from which you arrived at our website)</li>
+    </ul>
+
+    <h3>1.3 Cookies</h3>
+    <p>We use cookies to enhance your experience on our site. Cookies are small text files that are stored on your device. These help us understand how you use our website, remember your preferences, and improve site functionality. You can disable cookies in your browser settings, but this may limit your ability to use some features of our site.</p>
+
+    <h3>1.4 Third-Party Integrations</h3>
+    <p>Our website may include third-party services, such as analytics providers or social media integration. These third-party services may collect information about you. We encourage you to review the privacy policies of these services for more information on how they collect and process your data.</p>
+
+    <h2>2. How We Use Your Information</h2>
+    <p>The information we collect is used in the following ways:</p>
+    
+    <h3>2.1 To Improve User Experience</h3>
+    <p>We use your personal and usage data to personalize your experience on our website, making it easier for you to navigate and interact with our services.</p>
+
+    <h3>2.2 To Communicate with You</h3>
+    <p>We may use your contact information to respond to inquiries, provide support, or inform you about important updates regarding our services, policies, or products.</p>
+
+    <h3>2.3 To Process Transactions</h3>
+    <p>If you make a purchase or donation, we may use your personal information to process your payment and fulfill your order. Payment details, including billing addresses, are processed securely through trusted payment processors.</p>
+
+    <h3>2.4 To Improve Website Functionality</h3>
+    <p>We use usage data to analyze how visitors interact with our site. This helps us identify areas for improvement, optimize content, and enhance the overall user experience.</p>
+
+    <h3>2.5 For Marketing and Promotional Purposes</h3>
+    <p>If you have opted-in to receive marketing materials from us, we may use your contact information to send you promotional offers, updates, or newsletters. You can opt-out at any time by clicking the unsubscribe link provided in our emails or by contacting us directly.</p>
+
+    <h2>3. How We Protect Your Information</h2>
+    <p>We take the security of your personal data seriously and implement a range of security measures to protect it. However, please be aware that no method of data transmission over the internet is 100% secure. While we strive to protect your information, we cannot guarantee absolute security.</p>
+
+    <h3>3.1 Data Encryption</h3>
+    <p>We use encryption technology (SSL/TLS) to secure sensitive data, such as payment information, during transmission.</p>
+
+    <h3>3.2 Secure Storage</h3>
+    <p>Your personal information is stored in secure servers with restricted access. We take all reasonable precautions to protect your data from unauthorized access or disclosure.</p>
+
+    <h3>3.3 Third-Party Service Providers</h3>
+    <p>We may work with third-party service providers to help us process data, such as payment processors, email marketing services, and cloud storage. These service providers are contractually obligated to handle your information securely and in compliance with applicable data protection laws.</p>
+
+    <h2>4. Sharing Your Information</h2>
+    <p>We do not sell, trade, or rent your personal information to third parties. However, we may share your data in the following situations:</p>
+
+    <h3>4.1 With Service Providers</h3>
+    <p>We may share your information with trusted third-party vendors who assist us in operating our website or performing services on our behalf, such as payment processing, email communication, and data analytics.</p>
+
+    <h3>4.2 Legal Compliance</h3>
+    <p>We may disclose your information if required to do so by law or if we believe that such action is necessary to comply with legal obligations, protect our rights, or prevent fraud.</p>
+
+    <h3>4.3 Business Transfers</h3>
+    <p>If we undergo a merger, acquisition, or sale of assets, your personal information may be transferred to the new owner as part of that transaction.</p>
+
+    <h2>5. Your Data Protection Rights</h2>
+    <p>You have certain rights regarding your personal data, including the right to:</p>
+    <ul>
+        <li>Access your personal data</li>
+        <li>Request correction of inaccurate or incomplete data</li>
+        <li>Request deletion of your data in certain circumstances</li>
+        <li>Object to the processing of your data in certain cases</li>
+        <li>Request data portability to transfer your data to another provider</li>
+    </ul>
+
+    <p>If you would like to exercise any of these rights, please contact us using the contact information provided at the end of this policy. We will respond to your request in accordance with applicable laws.</p>
+
+    <h2>6. Data Retention</h2>
+    <p>We retain your personal data for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required by law.</p>
+
+    <h2>7. Children’s Privacy</h2>
+    <p>Our website is not intended for individuals under the age of 13. We do not knowingly collect personal data from children under 13. If we become aware that we have inadvertently collected information from a child, we will take steps to delete that data.</p>
+
+    <h2>8. Changes to This Privacy Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Any changes will be posted on this page, and the “Last Updated” date at the bottom will reflect the most recent revision. We encourage you to periodically review this Privacy Policy to stay informed about how we are protecting your information.</p>
+
+    <h2>9. Contact Us</h2>
+    <p>If you have any questions or concerns about this Privacy Policy, please contact us:</p>
+    <ul>
+        <li>By email: coastlinecapriccio@gmail.com</li>
+        <li>By phone: 0483868983</li>
+        <li>By mail: 20 Godolphin ST, Bulli, Wollongong</li>
+    </ul>
+
+    <p>Last Updated: 03_06_1923</p>
+</div>
+    <!-- 🔹 Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div>
+                <div class="footer-logo">Coastline Capriccio</div>
+                <p>Bringing quality music to you since 1823.</p>
+            </div>
+    
+            <ul class="footer-links">
+                <li><a href="Privacy"><u>Privacy Policy</u></a></li>
+                <li><a href="Terms.html">Terms & Conditions</a></li>
+                <li><a href="Contact.html">Contact Us</a></li>
+                <li><a href="FAQ.html">FAQs</a></li>
+            </ul>
+    
+            <div class="footer-social">
+                <a href="#">🟢 Spotify</a>
+                <a href="#">🟣 Instagram</a>
+                <a href="#">🔷 Twitter</a>
+                <a href="https://www.youtube.com/channel/UCVJb9IDm3g3kJPRi8AyK3Ow" target="_blank">🔴 YouTube</a>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            <p>© 2025 Coastline Capriccio. All Rights Reserved.</p>
+            <p>We acknowledge the Dharawal people as the Traditional Custodians of the land on which we gather today. We pay our respects to their Elders past, present, and emerging and recognize their continuing connection to land, waters, and culture. We extend that respect to all First Nations people present.</p>
+        </div>
+    </footer>
+    
+
+</body>
+</html>

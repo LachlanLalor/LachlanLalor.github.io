@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coastline Capriccio</title>
+    <link rel="icon" 
+      href="https://media-hosting.imagekit.io/ba8e546db1f84c2c/download%20(3).png?Expires=1838518567&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=iyzy3YWBbxBE2mYwyCaZ6t3Cq-P37AG8AQW11m~Bw8CP~qsi3Zh0S1sxOEoGmHKzShMwxi~8HPsfCslRizA3e1hnn-bGx9vBnTet0~1Qp-XLuabak7w5l3PvVE6H0KQ7NDHQrb8sHnt6NRjIBhKfp~XzN3NQ~KDGU9C~nxRQaFABlV6b-dKWbKVxT8e1tj51xlV6MLFDwsSIdRYngZAjbpGib3c~fDsEqdy8hvAbRFkdFSvIwaVmUFY3Ej5ZjNCuTT6bltLhJ2E6EQDXoYTaFKnIPDWXcBnHi3SqAK-aVtJ3wR6n9B-gOhoc1IYblcyIrY2CSqQ6JV-DIrKPOt61YA__" 
+      type="image/png">
+    <style>
+        * {box-sizing: border-box}
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #2c3e50;
+            padding: 15px 20px;
+            color: white;
+        }
+
+        .navbar .title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #2c3e50;
+    padding: 15px 20px;
+    color: white;
+}
+
+.navbar-left {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-left img {
+    height: 100px; /* Adjust the height of the logo image */
+    margin-right: 10px; /* Space between the logo and title */
+    margin-left: -10px;
+    margin-top: -15px;
+    margin-bottom: -15px;
+}
+
+.navbar .title {
+    font-size: 24px;
+    font-weight: bold;
+}
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-size: 18px;
+        }
+
+        .navbar a:hover {
+            background-color: #34495e;
+            border-radius: 5px;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-container input {
+            padding: 8px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .search-container button {
+            padding: 8px 12px;
+            background-color: #34495e;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: 5px;
+        }
+
+        .search-container button:hover {
+            background-color: #1abc9c;
+        }
+
+        .menu {
+            display: flex;
+            gap: 15px;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 24px;
+            color: white;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .menu {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #2c3e50;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                text-align: center;
+                padding: 10px 0;
+            }
+
+            .menu a {
+                display: block;
+                padding: 10px;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            .menu.show {
+                display: flex;
+            }
+        }
+
+        
+   /* 🔹 Footer Styling */
+   .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .footer-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+        }
+
+        .footer-logo {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links li {
+            display: inline;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #1abc9c;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .footer-social a {
+            color: white;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+
+        .footer-social a:hover {
+            color: #1abc9c;
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+            font-size: 14px;
+            opacity: 0.7;
+        }
+
+        /* 🔹 Responsive */
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 10px;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        h3 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px;
+            background-color: #1abc9c;
+            border: none;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #16a085;
+        }
+        .contact-info {
+            text-align: center;
+            margin-top: 20px;
+            color: #2c3e50;
+        }
+        .social-links a {
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #2c3e50;
+        }
+        .social-links a:hover {
+            color: #1abc9c;
+        }
+    </style>
+</head>
+<body style="background-color:powderblue;">
+    <nav class="navbar">
+        <div class="navbar-left">
+            <img src="https://media-hosting.imagekit.io/ba8e546db1f84c2c/download%20(3).png?Expires=1838518567&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=iyzy3YWBbxBE2mYwyCaZ6t3Cq-P37AG8AQW11m~Bw8CP~qsi3Zh0S1sxOEoGmHKzShMwxi~8HPsfCslRizA3e1hnn-bGx9vBnTet0~1Qp-XLuabak7w5l3PvVE6H0KQ7NDHQrb8sHnt6NRjIBhKfp~XzN3NQ~KDGU9C~nxRQaFABlV6b-dKWbKVxT8e1tj51xlV6MLFDwsSIdRYngZAjbpGib3c~fDsEqdy8hvAbRFkdFSvIwaVmUFY3Ej5ZjNCuTT6bltLhJ2E6EQDXoYTaFKnIPDWXcBnHi3SqAK-aVtJ3wR6n9B-gOhoc1IYblcyIrY2CSqQ6JV-DIrKPOt61YA__" 
+            alt="Coastline Capriccio Logo" style="height: 100px; margin-right: 10px;">
+            <div class="title">Coastline Capriccio</div>
+        </div> 
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="menu" id="menu">
+            <a href="Webstite.html">Home</a>
+            <a href="Tickets.html">Tickets</a>
+            <a href="About_Page.html">About</a>
+            <a class="active" href="Contact"><u>Contact Us</u></a>
+        </div>
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Search...">
+            <button onclick="searchFunction()">🔍</button>
+        </div>
+    </nav>
+
+    <script>
+
+        function toggleMenu() {
+            document.getElementById("menu").classList.toggle("show");
+        }
+
+        function searchFunction() {
+            let query = document.getElementById("search").value.trim();
+            if (query) {
+                alert("Searching for: " + query);
+            }
+        }
+    </script>
+ <div class="container">
+    <h2><u>Contact form</u></h2>
+    <br>
+    <h3>Use this form if you have any specific problems, requests or questions. We will reply to you as soon as possible.</h3>
+    <br>
+    <form class="contact-form" action="https://formspree.io/f/mvgkbdnj" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+    
+    <div class="contact-info">
+        <p>Email: coastlinecapriccio@gmail.com</p>
+        <p>Phone: 0483868983</p>
+        <p>Address: 20 Godolphin St, Bulli, Wollongong</p>
+        <div class="social-links">
+            <a href="#">🔵 Facebook</a>
+            <a href="#">🟣 Instagram</a>
+            <a href="#">🔷 Twitter</a>
+            <a href="https://www.youtube.com/channel/UCVJb9IDm3g3kJPRi8AyK3Ow">🔴 YouTube</a>
+        </div>
+    </div>
+</div>
+    <!-- 🔹 Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div>
+                <div class="footer-logo">Coastline Capriccio</div>
+                <p>Bringing quality music to you since 1823.</p>
+            </div>
+    
+            <ul class="footer-links">
+                <li><a href="Privacy.html">Privacy Policy</a></li>
+                <li><a href="Terms.html">Terms & Conditions</a></li>
+                <li><a href="Contact.html"><u>Contact Us</u></a></li>
+                <li><a href="FAQ.html">FAQs</a></li>
+            </ul>
+    
+            <div class="footer-social">
+                <a href="#">🟢 Spotify</a>
+                <a href="#">🟣 Instagram</a>
+                <a href="#">🔷 Twitter</a>
+                <a href="https://www.youtube.com/channel/UCVJb9IDm3g3kJPRi8AyK3Ow" target="_blank">🔴 YouTube</a>
+            </div>
+        </div>
+    
+        <div class="footer-bottom">
+            <p>© 2025 Coastline Capriccio. All Rights Reserved.</p>
+            <p>We acknowledge the Dharawal people as the Traditional Custodians of the land on which we gather today. We pay our respects to their Elders past, present, and emerging and recognize their continuing connection to land, waters, and culture. We extend that respect to all First Nations people present.</p>
+        </div>
+    </footer>
+    
+
+</body>
+</html>
